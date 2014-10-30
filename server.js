@@ -5,7 +5,7 @@ var request = require('request');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-var BOT_ID = "b75d1b5e0e7fe07c0803d148bc"
+var BOT_ID = "b75d1b5e0e7fe07c0803d148cd"
 var BOT_NAME = "AwesomeBot"
 
 
@@ -23,4 +23,4 @@ function writeMessage(message) {
 
 
 app.listen(process.env.PORT);
-console.log("started on port: " + process.env.PORT)
+console.log("started listening for messages")
