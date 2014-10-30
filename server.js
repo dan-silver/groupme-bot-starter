@@ -12,23 +12,15 @@ var BOT_NAME = "AwesomeBot"
 app.use(function (req, res) {
   console.log("Received a chat message:")
   console.log(req.body)
-  if (req.body.name != "AwesomeBot")
-  	writeMessage(req.body.name + ", this is a reply!")
+  if (req.body.name != BOT_NAME)
+  	writeMessage("This is a reply!")
 })
 
 
 function writeMessage(message) {
-  request.post(
-      'https://api.groupme.com/v3/bots/post?bot_id=' + BOT_ID + '&text=' + message,
-      {},
-      function (error, response, body) {
-          if (!error && response.statusCode == 200) {
-              console.log(body)
-          }
-      }
-  );
+  request.post('https://api.groupme.com/v3/bots/post?bot_id=' + BOT_ID + '&text=' + message)
 }
 
-//start server on port 3000
-app.listen(process.env.PORT || 3000);
-console.log("started on port: " + process.env.PORT || 3000)
+
+app.listen(process.env.PORT);
+console.log("started on port: " + process.env.PORT)
